@@ -84,6 +84,9 @@ function checkResult(num) {
     if (parseInt(num) === target) {  
         score += 10;
         document.getElementById('score').textContent = `Total Score: ${score}`;
+        if(score > 10){
+          timer=6
+        }
         generateTarget();
         loadBoard()
     }else{
