@@ -7,8 +7,13 @@ let overlay = document.getElementById("overlay");
 let timer = 10;
 let score = 0;
 let target = 0;
-
+let bubbleSound=new Audio('bubble.mp3')
+let gameStartSound=new Audio('start.wav')
+let gameOverSound=new Audio('gameover.mp3')
+var audio = document.getElementById("myaudio");
+  audio.volume = 0.4;
 function startGame() {
+  gameStartSound.play()
     loadBoard();
     timer = 10;
     score = 0;
@@ -60,7 +65,10 @@ function timeDisplay() {
             timeDiv.textContent = `Time's up`;
             document.getElementById("target").innerHTML = "Game Over";
             isOpen = true;
-            setTimeout(openMenuAndClose, 2000);
+            setTimeout(()=>{
+              openMenuAndClose()
+              gameOverSound.play()
+            }, 2000);
         }
     }, 1000);
 }
@@ -68,6 +76,7 @@ function timeDisplay() {
 gameDiv.addEventListener("click", function (e) {
     if (e.target.classList.contains("game-btn")) {
         let selectedBtn = e.target.textContent;
+        bubbleSound.play()
         checkResult(selectedBtn);
     }
 });
@@ -81,5 +90,6 @@ function checkResult(num) {
     }else{
       isOpen=true
       openMenuAndClose()
+      gameOverSound.play()
     }
 }
