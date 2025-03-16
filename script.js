@@ -12,7 +12,7 @@ let gameStartSound=new Audio('start.wav')
 let gameOverSound=new Audio('gameover.mp3')
 let backgroundSound=new Audio('mixkit-kidding-around-9.mp3')
 var audio = document.getElementById("myaudio");
-backgroundSound.play()  
+audio.src=backgroundSound
 audio.volume = 0.4;
 
 function startGame() {
