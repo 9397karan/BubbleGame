@@ -11,10 +11,7 @@ let bubbleSound=new Audio('bubble.mp3')
 let gameStartSound=new Audio('start.wav')
 let gameOverSound=new Audio('gameover.mp3')
 let backgroundSound=new Audio('mixkit-kidding-around-9.mp3')
-var audio = document.getElementById("myaudio");
-audio.src=backgroundSound
-audio.volume = 0.4;
-
+backgroundSound.play()
 function startGame() {
   gameStartSound.play()
     loadBoard();
